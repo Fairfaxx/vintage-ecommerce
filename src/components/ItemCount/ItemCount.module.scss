@@ -1,0 +1,16 @@
+.container{
+    margin: 35px auto;
+
+    & .item_title{
+        margin-bottom: 35px;
+        font-size: 35px;
+    }
+    & .btn_product{
+        background-color: dodgerblue;
+        padding: 3px 39px;
+        color: #ffff;
+        border: 1px solid white;
+        margin: 10px;
+    }
+
+}
