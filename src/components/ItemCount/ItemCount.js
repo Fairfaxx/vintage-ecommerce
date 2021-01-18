@@ -1,9 +1,9 @@
-import React, { useState} from 'react';
-import Item from '../Item/Item';
+import React, { useState } from 'react';
+// import Item from '../Item/Item';
 import style from './ItemCount.module.scss';
 
 
-const ItemCount = () => {   
+const ItemCount = () => {
     const [count, setCount] = useState(0)
 
     const handleDescount = () => {
