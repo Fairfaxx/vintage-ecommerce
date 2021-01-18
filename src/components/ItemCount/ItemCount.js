@@ -12,7 +12,7 @@ const ItemCount = () => {
         { id: 2, nombre: 'Reloj Antiguo', precio: 19000 },
         { id: 3, nombre: 'Pulsera Antigua', precio: 15000 },
     ]
-    const [items, setItems] = useState(initialValue)
+    const [items, setItems] = useState([])
     const [count, setCount] = useState(0)
 
     const handleDescount = () => {
@@ -34,8 +34,10 @@ const ItemCount = () => {
         })
 
         callData.then((res) => {
-            console.log(res)
+            setItems(res)
         })
+
+        // callData()
 
     }, [])
 
