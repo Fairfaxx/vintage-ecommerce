@@ -1,29 +1,46 @@
 import React, { useEffect, useState } from 'react';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = ({ initialValue }) => {
 
-    const [itemDetail, setItemDetail] = useState(null)
-    const getData = new Promise((res, error) => {
-        setTimeout(() => res(initialValue), 3000);
-    });
 
+    const [newItemDetail, setNewItemDetail] = useState({});
 
+    // const getData = new Promise((res, error) => {
+    //   setTimeout(() => res(initialValue), 3000);
+    // });
 
     useEffect(() => {
-        const getItems = () => {
-            return getData.then(res => res);
-        }
-        setItemDetail(getItems[1])
+        const emulateFetch = () => {
+            let findItems = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    initialValue ? resolve(initialValue) : reject('No items available');
+                }, 3000);
+            });
 
-        console.log(getData);
+            findItems
+                .then((resolve) => {
+                    console.log('ITEMS FOUNDED! ', resolve);
+                    setNewItemDetail(resolve);
+                })
+                .catch((err) => {
+                    console.log('Error: ', err);
+                });
+        };
+        emulateFetch()
 
-    }, [itemDetail])
-
+    }, [newItemDetail]);
+    console.log(newItemDetail)
     return (
         <div>
-            <p>{itemDetail}</p>
+            <ItemDetail newItemDetail={newItemDetail} />
         </div>
-    )
-}
+    );
+};
 
 export default ItemDetailContainer;
+
+
+
+
+
