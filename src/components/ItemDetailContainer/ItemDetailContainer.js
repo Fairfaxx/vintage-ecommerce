@@ -4,7 +4,7 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 const ItemDetailContainer = ({ initialValue }) => {
 
 
-    const [newItemDetail, setNewItemDetail] = useState({});
+    const [newItemDetail, setNewItemDetail] = useState([]);
 
     // const getData = new Promise((res, error) => {
     //   setTimeout(() => res(initialValue), 3000);
@@ -21,7 +21,7 @@ const ItemDetailContainer = ({ initialValue }) => {
             findItems
                 .then((resolve) => {
                     console.log('ITEMS FOUNDED! ', resolve);
-                    setNewItemDetail(resolve);
+                    setNewItemDetail(resolve[0]);
                 })
                 .catch((err) => {
                     console.log('Error: ', err);
