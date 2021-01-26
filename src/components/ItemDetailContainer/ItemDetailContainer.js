@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = ({ initialValue }) => {
 
-    const initialValue = [
-        { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
-        { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 'relojes' },
-        { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
-    ]
+    // const initialValue = [
+    //     { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
+    //     { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 'relojes' },
+    //     { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
+    // ]
 
     const [newItemDetail, setNewItemDetail] = useState([]);
 
