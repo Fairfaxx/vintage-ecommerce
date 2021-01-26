@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import Item from '../Item/Item';
+import { Link } from "react-router-dom";
 import style from './ItemCount.module.scss';
 
 
@@ -7,6 +7,7 @@ const ItemCount = ({ currentItem }) => {
 
     const { quantity } = currentItem;
     const [count, setCount] = useState(0)
+    const [onAdding, setOnAdding] = useState(false)
 
     const handleDescount = () => {
         if (count <= 0) {
@@ -16,6 +17,7 @@ const ItemCount = ({ currentItem }) => {
     }
     const handleCount = () => {
         if (count >= quantity) {
+            setOnAdding(true)
             return
         }
         setCount(count + 1)
@@ -23,7 +25,7 @@ const ItemCount = ({ currentItem }) => {
 
     return (
         <div className={style.container}>
-            <h3 className={style.item_title}>Items</h3>
+
             {/* {
                 items.map(item => (
                     <Item
@@ -32,11 +34,12 @@ const ItemCount = ({ currentItem }) => {
                     />
                 ))
             } */}
-            <p className={style.counter}>
+
+            {onAdding ? <Link to="/levels"><button className={style.btn_product}>Terminar mi compra</button></Link> : <p className={style.counter}>
                 <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
                 {count}
                 <button className={style.btn_product} onClick={() => handleCount()}>+</button>
-            </p>
+            </p>}
         </div>
     )
 }
