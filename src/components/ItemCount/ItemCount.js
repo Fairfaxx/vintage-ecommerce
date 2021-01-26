@@ -17,9 +17,9 @@ const ItemCount = ({ currentItem }) => {
     }
     const handleCount = () => {
         if (count >= quantity) {
-            setOnAdding(true)
             return
         }
+        setOnAdding(true)
         setCount(count + 1)
     }
 
@@ -35,11 +35,21 @@ const ItemCount = ({ currentItem }) => {
                 ))
             } */}
 
-            {onAdding ? <Link to="/levels"><button className={style.btn_product}>Terminar mi compra</button></Link> : <p className={style.counter}>
-                <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
-                {count}
-                <button className={style.btn_product} onClick={() => handleCount()}>+</button>
-            </p>}
+            {onAdding ?
+                <>
+                    <p className={style.counter}>
+                        <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
+                        {count}
+                        <button className={style.btn_product} onClick={() => handleCount()}>+</button>
+                    </p>
+                    <Link to="/cart"><button className={style.btn_product}>Terminar mi compra</button></Link>
+                </>
+                :
+                <p className={style.counter}>
+                    <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
+                    {count}
+                    <button className={style.btn_product} onClick={() => handleCount()}>+</button>
+                </p>}
         </div>
     )
 }
