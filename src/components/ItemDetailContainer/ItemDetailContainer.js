@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = (props) => {
 
     const initialValue = [
         { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },

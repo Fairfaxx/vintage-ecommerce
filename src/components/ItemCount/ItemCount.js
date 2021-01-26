@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import style from './ItemCount.module.scss';
 
 
-const ItemCount = () => {
+const ItemCount = ({ currentItem }) => {
+
+    const { quantity } = currentItem;
     const [count, setCount] = useState(0)
 
     const handleDescount = () => {
@@ -13,9 +15,9 @@ const ItemCount = () => {
         setCount(count - 1)
     }
     const handleCount = () => {
-        // if (count >= items.length) {
-        //     return
-        // }
+        if (count >= quantity) {
+            return
+        }
         setCount(count + 1)
     }
 
@@ -30,7 +32,11 @@ const ItemCount = () => {
                     />
                 ))
             } */}
-            <p className={style.counter}><button className={style.btn_product} onClick={() => handleDescount()}>-</button>{count}<button className={style.btn_product} onClick={() => handleCount()}>+</button></p>
+            <p className={style.counter}>
+                <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
+                {count}
+                <button className={style.btn_product} onClick={() => handleCount()}>+</button>
+            </p>
         </div>
     )
 }

@@ -14,7 +14,7 @@ const ItemDetail = ({ newItem }) => {
 
 
     useEffect(() => {
-        const products = newItem.filter(item => item);
+        const products = newItem.filter(item => item.id);
         setCurrentItem(products[0]);
         console.log(products[0])
         console.log(currentItem)
@@ -27,9 +27,9 @@ const ItemDetail = ({ newItem }) => {
                 <>
                     <h2>{currentItem.nombre}</h2>
                     <h3>Valor: ${currentItem.precio}</h3>
+                    <ItemCount currentItem={currentItem} />
                 </>
             }
-            <ItemCount />
         </div>
     );
 };
