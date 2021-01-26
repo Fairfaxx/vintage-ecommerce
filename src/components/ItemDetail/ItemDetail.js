@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-
+import { useParams } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemDetail = ({ newItemDetail }) => {
+const ItemDetail = ({ newItem }) => {
 
-    const { id, nombre, precio } = newItemDetail;
+    const itemId = useParams();
+    console.log(itemId)
+
+    const [currentItem, setCurrentItem] = useState([]);
+
+    console.log(newItem)
+
+
+    useEffect(() => {
+        const products = newItem.filter(item => item);
+        setCurrentItem(products[0]);
+        console.log(products[0])
+        console.log(currentItem)
+    }, [itemId, newItem]);
+
+    console.log(currentItem)
     return (
         <div>
-            <h2>{nombre}</h2>
-            <h3>Valor: ${precio}</h3>
+            {currentItem &&
+                <>
+                    <h2>{currentItem.nombre}</h2>
+                    <h3>Valor: ${currentItem.precio}</h3>
+                </>
+            }
             <ItemCount />
         </div>
     );
