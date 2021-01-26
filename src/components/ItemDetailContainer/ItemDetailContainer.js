@@ -21,7 +21,7 @@ const ItemDetailContainer = ({ initialValue }) => {
             findItems
                 .then((resolve) => {
                     console.log('ITEMS FOUNDED! ', resolve);
-                    setNewItemDetail(resolve[0]);
+                    setNewItemDetail(resolve);
                 })
                 .catch((err) => {
                     console.log('Error: ', err);

@@ -13,9 +13,9 @@ import CartWidget from './components/CartWidget/CartWidget';
 function App(props) {
 
   const initialValue = [
-    { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5 },
-    { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5 },
-    { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5 },
+    { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
+    { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 'relojes' },
+    { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
   ]
 
   return (
@@ -26,6 +26,9 @@ function App(props) {
         </Navbar>
         <Switch>
           <Route exact path="/" >
+            <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
+          </Route>
+          <Route path="/category/:id">
             <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
           </Route>
           <Route exact path="/item/">
