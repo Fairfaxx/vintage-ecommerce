@@ -1,6 +1,10 @@
 import React from 'react';
 
+
 const Item = ({ item }) => {
+
+
+
     return (
         <div>
             <h2>{item.nombre}</h2>

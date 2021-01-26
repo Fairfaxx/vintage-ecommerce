@@ -1,32 +1,34 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget'
+// import Logo from '../Assets/logo_ecommerce.png'
 
-const Navbar = () => {
+
+const Navbar = (props) => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">
-                    <a className="navbar-brand" href="#">Logo</a>
+                    <Link to="/">
+                        <a className="navbar-brand">Logo</a>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Products</a>
+                                <Link className="nav-link" to="/item/:id">Products</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Pricing</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">About</a>
+                                <Link className="nav-link" to="/category/:id">Categories</Link>
                             </li>
                         </ul>
                     </div>
-                    <CartWidget />
+                    <Link className="nav-link" to="/category/:id">{props.children}</Link>
                 </div>
             </nav>
         </div>
