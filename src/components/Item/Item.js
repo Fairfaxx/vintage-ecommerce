@@ -7,8 +7,8 @@ const Item = ({ item }) => {
 
     return (
         <div>
-            <h2>{item.nombre}</h2>
-            <p>{item.precio}</p>
+            <h2>Producto <br />{item.nombre}</h2>
+            <p>Valor ${item.precio}</p>
         </div>
     )
 }

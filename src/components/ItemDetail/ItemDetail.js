@@ -5,7 +5,7 @@ import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ newItem }) => {
 
-    const itemId = useParams();
+    const { categoryId } = useParams();
 
     const [currentItem, setCurrentItem] = useState([]);
     const [onAdd, setOnAdd] = useState(false)
@@ -13,7 +13,7 @@ const ItemDetail = ({ newItem }) => {
 
 
     useEffect(() => {
-        const products = newItem.filter(item => item.id);
+        const products = newItem.filter(item => item.categoryId === categoryId);
         setCurrentItem(products[0]);
         console.log(products[0])
         console.log(currentItem)
@@ -21,7 +21,7 @@ const ItemDetail = ({ newItem }) => {
             setOnAdd(true)
         }
 
-    }, [itemId, newItem]);
+    }, [categoryId, newItem]);
 
 
 

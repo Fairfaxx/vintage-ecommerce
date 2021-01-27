@@ -26,9 +26,9 @@ function App(props) {
         </Navbar>
         <Switch>
           <Route exact path="/" >
-            <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
+            <ItemListContainer initialValue={initialValue} titulo="Bienvenidos a Vintage E-commerce" />
           </Route>
-          <Route path="/category/:id">
+          <Route path="/category/:categoryId">
             <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
           </Route>
           <Route path="/item/:id">
