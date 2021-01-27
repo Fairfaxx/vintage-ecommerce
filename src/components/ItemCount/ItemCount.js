@@ -13,6 +13,7 @@ const ItemCount = ({ currentItem }) => {
         if (count <= 0) {
             return
         }
+        setOnAdding(false)
         setCount(count - 1)
     }
     const handleCount = () => {

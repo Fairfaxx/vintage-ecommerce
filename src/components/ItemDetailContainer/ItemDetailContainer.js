@@ -11,9 +11,6 @@ const ItemDetailContainer = ({ initialValue }) => {
 
     const [newItemDetail, setNewItemDetail] = useState([]);
 
-    // const getData = new Promise((res, error) => {
-    //   setTimeout(() => res(initialValue), 3000);
-    // });
 
     useEffect(() => {
         const emulateFetch = () => {
@@ -38,7 +35,7 @@ const ItemDetailContainer = ({ initialValue }) => {
     console.log(newItemDetail)
     return (
         <div>
-            <ItemDetail newItem={newItemDetail} />
+            <ItemDetail newItemDetail={newItemDetail} />
         </div>
     );
 };

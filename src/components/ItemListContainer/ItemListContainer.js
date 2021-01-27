@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import styles from './ItemListContainer.module.scss';
 import Item from '../Item/Item'
 
+
 const ItemListContainer = ({ titulo, initialValue }) => {
 
     const { categoryId } = useParams();
@@ -33,16 +34,19 @@ const ItemListContainer = ({ titulo, initialValue }) => {
     }, [newItemDetail]);
 
     return (
-        <div className={styles.container}>
-            {newItemDetail &&
-                newItemDetail.map(item => (
-                    <Item
-                        key={item.id}
-                        item={item}
-                    />
-                ))
-            }
-        </div>
+        <>
+            <h1>{titulo}</h1>
+            <div className={styles.container}>
+                {newItemDetail &&
+                    newItemDetail.map(item => (
+                        <Item
+                            key={item.id}
+                            item={item}
+                        />
+                    ))
+                }
+            </div>
+        </>
     )
 }
 

@@ -1,5 +1,7 @@
 .container{
     margin-top: 55px;
+    display: flex;
+    justify-content: space-around;
 
     .main_title{
         font-family: 'Roboto', sans-serif;

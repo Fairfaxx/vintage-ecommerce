@@ -1,3 +1,24 @@
+Vintage ecomemmerce React.js app
+
+This is a modern ecommerce concept app made with React.js. Moreoften I work on the most important features to get different experiences.
+
+Future plans
+I am planning to implement these features: Node.js after I start at Coderhouse Bootcamp on March 2021.
+
+How this project can be helpful for you??
+I don't know, I'm still having a hard time passing "items" through props, so ask for help to  Emi or Jesus :)
+
+Contact me, please, if you have any interest, question or misunderstanding ))
+
+Features
+Authentification ? Don't know yet
+Shopping Cart 
+Animated Routes ?
+React Router - Declarative routing for React
+Firebase / Firestore
+Axios - Promise based HTTP client for the browser and node.js
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

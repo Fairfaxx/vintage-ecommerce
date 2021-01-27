@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemDetail = ({ newItem }) => {
+const ItemDetail = ({ newItemDetail }) => {
+
+    console.log(newItemDetail.categoryId);
 
     const { categoryId } = useParams();
 
@@ -13,19 +15,17 @@ const ItemDetail = ({ newItem }) => {
 
 
     useEffect(() => {
-        const products = newItem.filter(item => item.categoryId === categoryId);
-        setCurrentItem(products[0]);
-        console.log(products[0])
+        const products = newItemDetail.filter(item => item.categoryId === categoryId);
+        setCurrentItem(products);
+        console.log(products)
         console.log(currentItem)
         if (currentItem) {
             setOnAdd(true)
         }
 
-    }, [categoryId, newItem]);
+    }, [categoryId, newItemDetail]);
 
 
-
-    console.log(currentItem)
     return (
         <div>
             {currentItem &&

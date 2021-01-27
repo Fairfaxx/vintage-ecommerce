@@ -29,14 +29,14 @@ function App(props) {
             <ItemListContainer initialValue={initialValue} titulo="Bienvenidos a Vintage E-commerce" />
           </Route>
           <Route path="/category/:categoryId">
-            <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
+            <ItemListContainer initialValue={initialValue} />
           </Route>
           <Route path="/item/:id">
             <ItemDetailContainer initialValue={initialValue} />
           </Route>
-          {/* <Route exact path="/item/:1">
+          <Route exact path="/item/:1">
             <ItemDetail />
-          </Route> */}
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
