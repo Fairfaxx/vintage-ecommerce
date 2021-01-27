@@ -33,14 +33,15 @@ const ItemDetail = ({ newItem }) => {
                     <h2>{currentItem.nombre}</h2>
                     <h3>Valor: ${currentItem.precio}</h3>
                     <h3>Cantidad disponible {currentItem.quantity}</h3>
-                    {onAdd ?
+                    <ItemCount currentItem={currentItem} />
+                    {/* {onAdd ?
                         <>
                             <ItemCount currentItem={currentItem} /> <Link to="/levels"><button>Terminar mi compra</button></Link>
                         </>
                         :
-                        <ItemCount currentItem={currentItem}
+                            <ItemCount currentItem={currentItem}
 
-                        />}
+                        />} */}
 
                 </>
             }
