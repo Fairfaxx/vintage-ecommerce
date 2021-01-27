@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Item.module.scss'
 import Reloj from '../Assets/reloj_antiguo.jpg'
+
+
 const Item = ({ item }) => {
 
 

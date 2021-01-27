@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams, Link } from 'react-router-dom';
 
 const ItemDetailContainer = ({ initialValue }) => {
 
@@ -9,6 +10,7 @@ const ItemDetailContainer = ({ initialValue }) => {
     //     { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
     // ]
 
+    const categoryId = useParams();
     const [newItemDetail, setNewItemDetail] = useState([]);
 
 
@@ -31,7 +33,8 @@ const ItemDetailContainer = ({ initialValue }) => {
         };
         emulateFetch()
 
-    }, []);
+    }, [categoryId, newItemDetail]);
+
     console.log(newItemDetail)
     return (
         <div>

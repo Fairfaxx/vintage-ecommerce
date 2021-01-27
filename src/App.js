@@ -10,7 +10,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import CartWidget from './components/CartWidget/CartWidget';
 
 
-function App(props) {
+function App() {
 
   const initialValue = [
     { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
@@ -34,7 +34,7 @@ function App(props) {
           <Route path="/item/:id">
             <ItemDetailContainer initialValue={initialValue} />
           </Route>
-          <Route exact path="/item/:1">
+          <Route exact path="/item/">
             <ItemDetail />
           </Route>
         </Switch>

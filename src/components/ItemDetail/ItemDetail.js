@@ -1,50 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ newItemDetail }) => {
 
     console.log(newItemDetail);
 
-    const { categoryId } = useParams();
+    const categoryId = useParams();
 
     const [currentItem, setCurrentItem] = useState([]);
-    const [onAdd, setOnAdd] = useState(false)
+    // const [onAdd, setOnAdd] = useState(false)
 
 
+    console.log(categoryId)
 
-    useEffect(() => {
-        const products = newItemDetail.filter(item => item.categoryId === categoryId);
-        setCurrentItem(products);
-        console.log(products)
-        console.log(currentItem)
-        if (currentItem) {
-            setOnAdd(true)
-        }
-
-    }, [categoryId, newItemDetail]);
+    // useEffect(() => {
+    //     const products = newItemDetail.filter(item => item.categoryId.toString() === categoryId.id);
+    //     setCurrentItem(products);
+    //     console.log(products);
+    //     console.log(currentItem);
+    //     console.log(categoryId)
+    // }, [categoryId, newItemDetail]);
 
 
 
     return (
         <div>
-            {currentItem &&
-                <>
-                    <h2>{currentItem.nombre}</h2>
-                    <h3>Valor: ${currentItem.precio}</h3>
-                    <h3>Cantidad disponible {currentItem.quantity}</h3>
-                    <ItemCount currentItem={currentItem} />
-                    {/* {onAdd ?
-                        <>
-                            <ItemCount currentItem={currentItem} /> <Link to="/levels"><button>Terminar mi compra</button></Link>
-                        </>
-                        :
-                            <ItemCount currentItem={currentItem}
-
-                        />} */}
-
-                </>
+            {newItemDetail &&
+                <Link to='/cart'>
+                    <h2>{newItemDetail.nombre}</h2>
+                    <h3>Valor: ${newItemDetail.precio}</h3>
+                    <h3>Cantidad disponible {newItemDetail.quantity}</h3>
+                    <ItemCount currentItem={newItemDetail} />
+                </Link>
             }
         </div>
     );
