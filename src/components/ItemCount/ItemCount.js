@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-// import Item from '../Item/Item';
+import { Link } from "react-router-dom";
 import style from './ItemCount.module.scss';
 
 
-const ItemCount = () => {
+const ItemCount = ({ currentItem }) => {
+
+    const { quantity } = currentItem;
     const [count, setCount] = useState(0)
+    const [onAdding, setOnAdding] = useState(false)
 
     const handleDescount = () => {
         if (count <= 0) {
@@ -13,15 +16,16 @@ const ItemCount = () => {
         setCount(count - 1)
     }
     const handleCount = () => {
-        // if (count >= items.length) {
-        //     return
-        // }
+        if (count >= quantity) {
+            return
+        }
+        setOnAdding(true)
         setCount(count + 1)
     }
 
     return (
         <div className={style.container}>
-            <h3 className={style.item_title}>Items</h3>
+
             {/* {
                 items.map(item => (
                     <Item
@@ -30,7 +34,22 @@ const ItemCount = () => {
                     />
                 ))
             } */}
-            <p className={style.counter}><button className={style.btn_product} onClick={() => handleDescount()}>-</button>{count}<button className={style.btn_product} onClick={() => handleCount()}>+</button></p>
+
+            {onAdding ?
+                <>
+                    <p className={style.counter}>
+                        <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
+                        {count}
+                        <button className={style.btn_product} onClick={() => handleCount()}>+</button>
+                    </p>
+                    <Link to="/cart"><button className={style.btn_product}>Terminar mi compra</button></Link>
+                </>
+                :
+                <p className={style.counter}>
+                    <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
+                    {count}
+                    <button className={style.btn_product} onClick={() => handleCount()}>+</button>
+                </p>}
         </div>
     )
 }

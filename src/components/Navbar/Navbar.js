@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget'
+// import Logo from '../Assets/logo_ecommerce.png'
+
 
 const Navbar = (props) => {
     return (
@@ -19,14 +21,14 @@ const Navbar = (props) => {
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/item/">Products</Link>
+                                <Link className="nav-link" to="/item/:id">Products</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/category/:id">Categories</Link>
                             </li>
                         </ul>
                     </div>
-                    <Link className="nav-link" to="#/">{props.children}</Link>
+                    <Link className="nav-link" to="/category/:id">{props.children}</Link>
                 </div>
             </nav>
         </div>
