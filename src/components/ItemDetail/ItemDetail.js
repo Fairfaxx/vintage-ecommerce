@@ -5,7 +5,7 @@ import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ newItemDetail }) => {
 
-    console.log(newItemDetail.categoryId);
+    console.log(newItemDetail);
 
     const { categoryId } = useParams();
 
@@ -24,6 +24,7 @@ const ItemDetail = ({ newItemDetail }) => {
         }
 
     }, [categoryId, newItemDetail]);
+
 
 
     return (
