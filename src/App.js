@@ -12,11 +12,11 @@ import CartWidget from './components/CartWidget/CartWidget';
 
 function App(props) {
 
-  // const initialValue = [
-  //   { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
-  //   { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 'relojes' },
-  //   { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
-  // ]
+  const initialValue = [
+    { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
+    { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 'relojes' },
+    { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
+  ]
 
   return (
     <div className="App">
@@ -26,13 +26,13 @@ function App(props) {
         </Navbar>
         <Switch>
           <Route exact path="/" >
-            <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
+            <ItemListContainer initialValue={initialValue} titulo="Bienvenidos a Vintage E-commerce" />
           </Route>
-          <Route path="/category/:id">
+          <Route path="/category/:categoryId">
             <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
           </Route>
           <Route path="/item/:id">
-            <ItemDetailContainer />
+            <ItemDetailContainer initialValue={initialValue} />
           </Route>
           {/* <Route exact path="/item/:1">
             <ItemDetail />
