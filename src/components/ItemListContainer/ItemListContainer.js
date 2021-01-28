@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './ItemListContainer.module.scss';
 import Item from '../Item/Item'
 
 
 const ItemListContainer = ({ titulo, initialValue }) => {
 
-    const categoryId = useParams();
 
     const [newItemDetail, setNewItemDetail] = useState([]);
     // const [onAdd, setOnAdd] = useState(false)
@@ -30,18 +29,17 @@ const ItemListContainer = ({ titulo, initialValue }) => {
         };
         emulateFetch()
 
-    }, [newItemDetail]);
+    }, []);
 
     return (
         <>
             <h1>{titulo}</h1>
             <div className={styles.container}>
-                {newItemDetail &&
-                    newItemDetail.map(item => (
-                        <Link to={`/item/${item.id}`}>
+                { newItemDetail.map((itemToMap) => (
+                        <Link to={`/item/${itemToMap.id}`}>
                             <Item
-                                key={item.id}
-                                item={item}
+                                key={itemToMap.id}
+                                item={itemToMap}
                             />
                         </Link>
                     ))
