@@ -35,14 +35,14 @@ const ItemListContainer = ({ titulo, initialValue }) => {
         <>
             <h1>{titulo}</h1>
             <div className={styles.container}>
-                { newItemDetail.map((itemToMap) => (
-                        <Link to={`/item/${itemToMap.id}`}>
-                            <Item
-                                key={itemToMap.id}
-                                item={itemToMap}
-                            />
-                        </Link>
-                    ))
+                {newItemDetail.map((itemToMap) => (
+                    <Link to={`/item/${itemToMap.id}`} key={itemToMap.id}>
+                        <Item
+                            key={itemToMap.id}
+                            item={itemToMap}
+                        />
+                    </Link>
+                ))
                 }
             </div>
         </>

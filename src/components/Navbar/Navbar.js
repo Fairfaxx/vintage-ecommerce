@@ -24,7 +24,7 @@ const Navbar = (props) => {
                                 <Link className="nav-link" to="/item/:id">Products</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/category/:id">Categories</Link>
+                                <Link className="nav-link" to='/category/1'>Categories</Link>
                             </li>
                         </ul>
                     </div>
