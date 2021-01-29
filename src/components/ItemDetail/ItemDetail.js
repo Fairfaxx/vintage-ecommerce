@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../Context/CartContext';
+
 
 const ItemDetail = ({ itemDetail }) => {
-    console.log(itemDetail)
+
+    const quantityContext = useContext(CartContext)
+    // const { quantityCount, setQuantityCount } = <ItemCount />
+    // const [quantityCount, setQuantityCount] = useState(itemDetail.quantity)
+    // console.log(Number(quantityCount))
 
     return (
         <div>
