@@ -16,6 +16,7 @@ function App() {
     { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 1 },
     { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 1 },
     { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 2 },
+    { id: 4, nombre: 'Televisor Antiguo', precio: 11000, quantity: 5, categoryId: 2 },
   ]
 
   console.log(CartContext);
