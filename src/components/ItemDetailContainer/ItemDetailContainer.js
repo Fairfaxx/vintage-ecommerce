@@ -4,25 +4,25 @@ import { useParams, Link } from 'react-router-dom';
 
 const ItemDetailContainer = ({ initialValue }) => {
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [newItemDetail, setNewItemDetail] = useState({});
 
     useEffect(() => {
         const emulateFetch = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    initialValue ? resolve(initialValue) : reject('No items available');
-                }, 3000);
-            });
+            setTimeout(() => {
+                initialValue ? resolve(initialValue) : reject('No items available');
+            }, 3000);
+        });
         emulateFetch.then((resolve) => {
-            let resolved = resolve.find( product => product.id === Number(id) );
+            let resolved = resolve.find(product => product.id === Number(id));
             console.log('ITEMS FOUNDED! ', resolved);
             setNewItemDetail(resolved);
         })
-        .catch((err) => {
-            console.log('Error: ', err);
-        })
-    }, []);
+            .catch((err) => {
+                console.log('Error: ', err);
+            })
+    }, [id]);
 
     return (
         <div>
@@ -32,8 +32,3 @@ const ItemDetailContainer = ({ initialValue }) => {
 };
 
 export default ItemDetailContainer;
-
-
-
-
-

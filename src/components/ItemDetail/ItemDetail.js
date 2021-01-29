@@ -1,7 +1,8 @@
 import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemDetail = ({itemDetail}) => {
+const ItemDetail = ({ itemDetail }) => {
+    console.log(itemDetail)
 
     return (
         <div>
