@@ -26,7 +26,10 @@ const ItemDetailContainer = ({ initialValue }) => {
 
     return (
         <div>
-            <ItemDetail itemDetail={newItemDetail} />
+            {
+                newItemDetail &&
+                <ItemDetail itemDetail={newItemDetail} />
+            }
         </div>
     );
 };
