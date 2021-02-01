@@ -19,7 +19,7 @@ function App() {
     { id: 4, nombre: 'Televisor Antiguo', precio: 11000, quantity: 5, categoryId: 2 },
   ]
 
-  console.log(Context);
+
 
   return (
     <div className="App">

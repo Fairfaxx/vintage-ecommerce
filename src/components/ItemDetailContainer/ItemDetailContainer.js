@@ -13,7 +13,7 @@ const ItemDetailContainer = ({ initialValue }) => {
 
     const addingToCart = (id) => {
         const items = initialValue.filter(item => item.id === id);
-        setAddToCart(items);
+        console.log(items);
     }
 
     // const addingToCart = (id) => {

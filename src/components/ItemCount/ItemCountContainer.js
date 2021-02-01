@@ -4,9 +4,9 @@ import { CartContext } from '../../Context/CartContext';
 
 const ItemCountContainer = ({ currentItem, addingToCart }) => {
 
-    const { quantity, id, nombre, precio, } = currentItem;
+    const { quantity, id } = currentItem;
     const [count, setCount] = useContext(CartContext);
-
+    console.log(count)
     const [onAdding, setOnAdding] = useState(false);
     const [quantityCount, setQuantityCount] = useState(quantity);
 
@@ -53,7 +53,7 @@ const ItemCountContainer = ({ currentItem, addingToCart }) => {
         <div>
             <ItemCount
                 value={count}
-                stock={quantity}
+                quantity={quantity}
                 count={count}
                 handleCount={handleCount}
                 handleDescount={handleDescount}

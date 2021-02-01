@@ -6,7 +6,7 @@ import style from './ItemCount.module.scss';
 const ItemCount = ({
     currentItem,
     value,
-    stock,
+    quantity,
     handleCount,
     handleDescount,
     onAdding,
@@ -15,7 +15,7 @@ const ItemCount = ({
     id
 }) => {
 
-    const { quantity } = currentItem;
+    // const { quantity } = currentItem;
 
 
     return (
