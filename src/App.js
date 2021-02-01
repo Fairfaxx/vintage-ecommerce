@@ -8,7 +8,7 @@ import Item from './components/Item/Item';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartWidget from './components/CartWidget/CartWidget';
-import { CartContext } from './Context/CartContext';
+import { Context } from './Context/CartContext';
 
 function App() {
 
@@ -19,12 +19,12 @@ function App() {
     { id: 4, nombre: 'Televisor Antiguo', precio: 11000, quantity: 5, categoryId: 2 },
   ]
 
-  console.log(CartContext);
+  console.log(Context);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <CartContext.Provider value={0}>
+        <Context>
           <Navbar>
             <CartWidget />
           </Navbar>
@@ -42,7 +42,7 @@ function App() {
               <ItemDetail />
             </Route>
           </Switch>
-        </CartContext.Provider>
+        </Context>
       </BrowserRouter>
     </div>
   );

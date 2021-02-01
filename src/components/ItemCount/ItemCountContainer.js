@@ -1,25 +1,12 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ItemCount from './ItemCount';
+import { CartContext } from '../../Context/CartContext';
 
 const ItemCountContainer = ({ currentItem }) => {
 
     const { quantity } = currentItem;
-
-    // const [value, setValue] = useState(initVal)
-
-    // const handlePlus = () => {
-    //     !(value === quantity) && setValue(value + onAdd)
-    // }
-
-    // const handleMinus = () => {
-    //     !(value === onAdd) && setValue(value - onAdd)
-    // }
-
-    // const [count, setCount] = useState(0)
-    // const [onAdding, setOnAdding] = useState(false)
-    // const [quantityCount, setQuantityCount] = useState(0)
-
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useContext(CartContext);
+    // const [count, setCount] = useState(quantityContext)
     const [onAdding, setOnAdding] = useState(false)
     const [quantityCount, setQuantityCount] = useState(quantity)
 
@@ -67,6 +54,7 @@ const ItemCountContainer = ({ currentItem }) => {
                 currentItem={currentItem}
                 onAdding={onAdding}
                 setQuantityCount={setQuantityCount}
+                count={count}
             />
             <p>Cantidad disponible: {quantity - count}</p>
         </div>

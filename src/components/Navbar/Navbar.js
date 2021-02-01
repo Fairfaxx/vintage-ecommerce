@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
-import CartWidget from '../CartWidget/CartWidget'
-// import Logo from '../Assets/logo_ecommerce.png'
+import CartWidget from '../CartWidget/CartWidget';
+import { CartContext } from '../../Context/CartContext';
+
 
 
 const Navbar = (props) => {
+
+    const [count, setCount] = useContext(CartContext);
+
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,7 +36,7 @@ const Navbar = (props) => {
                             </li>
                         </ul>
                     </div>
-                    <Link className="nav-link" to="/category/:id">{props.children}</Link>
+                    <Link className="nav-link d-flex" to="/category/:id">{props.children} <p className="ml-5">{count}</p></Link>
                 </div>
             </nav>
         </div>

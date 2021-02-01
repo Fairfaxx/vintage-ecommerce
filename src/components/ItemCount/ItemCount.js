@@ -17,7 +17,7 @@ const ItemCount = ({ currentItem, value, stock, handleCount, handleDescount, onA
                         {count}
                         <button className={style.btn_product} onClick={() => handleCount()}><i className="fas fa-plus"></i></button>
                     </p>
-                    <button onClick={() => alert(`Adquiriste ${count} items`)} className={style.btn_product}>Terminar mi compra {count}</button>
+                    <button onClick={() => alert(`"Adquiriste" ${count}`)} className={style.btn_product}>Terminar mi compra {count}</button>
                 </>
                 :
                 <p className={style.counter}>
