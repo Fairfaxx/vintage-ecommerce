@@ -11,22 +11,6 @@ const ItemListContainer = ({ titulo, initialValue }) => {
 
     const { categoryId } = useParams();
 
-    // if (categoryId !== undefined) {
-    //     filterdCategories = initialValue.filter(product => product.categoryId === Number(categoryId.id));
-    // } else {
-    //     console.log('ITEMS FOUNDED! ', initialValue);
-    //     setNewItemDetail(initialValue);
-    // }
-
-    // const resolvedCategories = () => {
-    //     if (categoryId !== undefined) {
-    //         initialValue.filter(product => product.categoryId.id === Number(categoryId.id));
-    //     } else {
-    //         console.log('ITEMS FOUNDED! ', initialValue);
-    //         setNewItemDetail(initialValue);
-    //     }
-    // }
-
     useEffect(() => {
         const emulateFetch = () => {
             let findItems = new Promise((resolve, reject) => {
@@ -38,14 +22,11 @@ const ItemListContainer = ({ titulo, initialValue }) => {
             findItems
                 .then((resolve) => {
                     if (categoryId !== undefined) {
-                        resolve.filter(product => product.categoryId === Number(categoryId.id));
+                        setNewItemDetail(resolve.filter(product => product.categoryId === Number(categoryId)));
                     } else {
                         console.log('ITEMS FOUNDED! ', initialValue);
                         setNewItemDetail(initialValue);
                     }
-                    // let resolved = resolve.filter(product => product.categoryId === Number(categoryId));
-                    // console.log('ITEMS FOUNDED! ', resolve);
-                    // setNewItemDetail(resolve);
                 })
                 .catch((err) => {
                     console.log('Error: ', err);

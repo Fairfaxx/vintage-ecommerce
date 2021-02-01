@@ -1,12 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams, Link } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext';
+
 
 const ItemDetailContainer = ({ initialValue }) => {
 
     const { id } = useParams();
 
     const [newItemDetail, setNewItemDetail] = useState({});
+    const [addToCart, setAddToCart] = useContext(CartContext);
+
+    const addingToCart = (id) => {
+        const items = initialValue.filter(item => item.id === id);
+        setAddToCart(items);
+    }
+
+    // const addingToCart = (id) => {
+    //     const items = initialValue.filter(item => item.id === id);
+    //     setAddToCart([
+    //         ...addToCart, items]);
+    // }
 
     useEffect(() => {
         const emulateFetch = new Promise((resolve, reject) => {
@@ -28,7 +42,7 @@ const ItemDetailContainer = ({ initialValue }) => {
         <div>
             {
                 newItemDetail &&
-                <ItemDetail itemDetail={newItemDetail} />
+                <ItemDetail itemDetail={newItemDetail} addingToCart={addingToCart} />
             }
         </div>
     );

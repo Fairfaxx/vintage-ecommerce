@@ -2,13 +2,19 @@ import React, { useState, useEffect, useContext } from 'react';
 import ItemCount from './ItemCount';
 import { CartContext } from '../../Context/CartContext';
 
-const ItemCountContainer = ({ currentItem }) => {
+const ItemCountContainer = ({ currentItem, addingToCart }) => {
 
-    const { quantity } = currentItem;
+    const { quantity, id, nombre, precio, } = currentItem;
     const [count, setCount] = useContext(CartContext);
-    // const [count, setCount] = useState(quantityContext)
-    const [onAdding, setOnAdding] = useState(false)
-    const [quantityCount, setQuantityCount] = useState(quantity)
+
+    const [onAdding, setOnAdding] = useState(false);
+    const [quantityCount, setQuantityCount] = useState(quantity);
+
+
+    // const addingToCart = (id) => {
+    //     const items = currentItem.filter(item => item.id === id);
+    //     console.log(items)
+    // }
 
     const handleDescount = () => {
         if (count <= 0) {
@@ -55,6 +61,8 @@ const ItemCountContainer = ({ currentItem }) => {
                 onAdding={onAdding}
                 setQuantityCount={setQuantityCount}
                 count={count}
+                addingToCart={addingToCart}
+                id={id}
             />
             <p>Cantidad disponible: {quantity - count}</p>
         </div>
