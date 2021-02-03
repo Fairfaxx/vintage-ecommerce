@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
-import { CartContext } from '../../Context/CartContext';
+import CartContext from '../../CartContext/CartContext';
 import ItemCountContainer from '../ItemCount/ItemCountContainer';
 
 

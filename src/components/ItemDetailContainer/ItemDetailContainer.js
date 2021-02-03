@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams, Link } from 'react-router-dom';
-import { CartContext } from '../../Context/CartContext';
+import CartContext from '../../CartContext/CartContext';
 
 
 const ItemDetailContainer = ({ initialValue }) => {

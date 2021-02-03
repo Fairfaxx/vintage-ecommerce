@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ItemCount from './ItemCount';
-import { CartContext } from '../../Context/CartContext';
+// import CartContext from '../../Context/CartContext';
 
 const ItemCountContainer = ({ currentItem, addingToCart }) => {
 
