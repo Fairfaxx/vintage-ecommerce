@@ -8,7 +8,7 @@ import Item from './components/Item/Item';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartWidget from './components/CartWidget/CartWidget';
-import { Context } from './Context/CartContext';
+import CartContext from './Context/CartContext';
 
 function App() {
 
@@ -23,8 +23,8 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Context>
+      <CartContext>
+        <BrowserRouter>
           <Navbar>
             <CartWidget />
           </Navbar>
@@ -42,8 +42,8 @@ function App() {
               <ItemDetail />
             </Route>
           </Switch>
-        </Context>
-      </BrowserRouter>
+        </BrowserRouter>
+      </CartContext>
     </div>
   );
 }
