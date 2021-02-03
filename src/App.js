@@ -8,7 +8,7 @@ import Item from './components/Item/Item';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartWidget from './components/CartWidget/CartWidget';
-import Context from './CartContext/CartContext';
+import { Context } from './CartContext/CartContext';
 
 function App() {
 

@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
-import CartContext from '../../CartContext/CartContext';
+import { CartContext } from '../../CartContext/CartContext';
 import ItemCountContainer from '../ItemCount/ItemCountContainer';
 
 
 const ItemDetail = ({ itemDetail, addingToCart }) => {
     console.log(itemDetail);
 
-    const quantityContext = useContext(CartContext);
+    const { quantityContext } = useContext(CartContext);
 
 
 
