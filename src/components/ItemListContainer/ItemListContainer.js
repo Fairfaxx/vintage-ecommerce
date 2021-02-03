@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styles from './ItemListContainer.module.scss';
 import Item from '../Item/Item'
 
+
 const ItemListContainer = ({ titulo, initialValue }) => {
 
-    const { categoryId } = useParams();
 
     const [newItemDetail, setNewItemDetail] = useState([]);
-    // const [onAdd, setOnAdd] = useState(false)
+
+    const { categoryId } = useParams();
 
     useEffect(() => {
         const emulateFetch = () => {
@@ -21,8 +21,12 @@ const ItemListContainer = ({ titulo, initialValue }) => {
 
             findItems
                 .then((resolve) => {
-                    console.log('ITEMS FOUNDED! ', resolve);
-                    setNewItemDetail(resolve);
+                    if (categoryId !== undefined) {
+                        setNewItemDetail(resolve.filter(product => product.categoryId === Number(categoryId)));
+                    } else {
+                        console.log('ITEMS FOUNDED! ', initialValue);
+                        setNewItemDetail(initialValue);
+                    }
                 })
                 .catch((err) => {
                     console.log('Error: ', err);
@@ -30,19 +34,25 @@ const ItemListContainer = ({ titulo, initialValue }) => {
         };
         emulateFetch()
 
-    }, [newItemDetail]);
+
+
+    }, [categoryId]);
 
     return (
-        <div className={styles.container}>
-            {newItemDetail &&
-                newItemDetail.map(item => (
-                    <Item
-                        key={item.id}
-                        item={item}
-                    />
+        <>
+            <h1>{titulo}</h1>
+            <div className={styles.container}>
+                {newItemDetail.map((itemToMap) => (
+                    <Link to={`/item/${itemToMap.id}`} key={itemToMap.id}>
+                        <Item
+                            key={itemToMap.id}
+                            item={itemToMap}
+                        />
+                    </Link>
                 ))
-            }
-        </div>
+                }
+            </div>
+        </>
     )
 }
 

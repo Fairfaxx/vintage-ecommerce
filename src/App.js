@@ -8,36 +8,41 @@ import Item from './components/Item/Item';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartWidget from './components/CartWidget/CartWidget';
+import { Context } from './Context/CartContext';
 
-
-function App(props) {
+function App() {
 
   const initialValue = [
-    { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
-    { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 'relojes' },
-    { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
+    { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 1 },
+    { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 1 },
+    { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 2 },
+    { id: 4, nombre: 'Televisor Antiguo', precio: 11000, quantity: 5, categoryId: 2 },
   ]
+
+
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar>
-          <CartWidget />
-        </Navbar>
-        <Switch>
-          <Route exact path="/" >
-            <ItemListContainer initialValue={initialValue} titulo="Bienvenidos a Vintage E-commerce" />
-          </Route>
-          <Route path="/category/:categoryId">
-            <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
-          </Route>
-          <Route path="/item/:id">
-            <ItemDetailContainer initialValue={initialValue} />
-          </Route>
-          {/* <Route exact path="/item/:1">
-            <ItemDetail />
-          </Route> */}
-        </Switch>
+        <Context>
+          <Navbar>
+            <CartWidget />
+          </Navbar>
+          <Switch>
+            <Route exact path="/" >
+              <ItemListContainer initialValue={initialValue} titulo="Bienvenidos a Vintage E-commerce" />
+            </Route>
+            <Route path="/category/:categoryId">
+              <ItemListContainer initialValue={initialValue} />
+            </Route>
+            <Route path="/item/:id">
+              <ItemDetailContainer initialValue={initialValue} />
+            </Route>
+            {/* <Route exact path="/cart/">
+              <Cart />
+            </Route> */}
+          </Switch>
+        </Context>
       </BrowserRouter>
     </div>
   );

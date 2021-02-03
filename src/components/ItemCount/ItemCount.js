@@ -1,55 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import style from './ItemCount.module.scss';
 
 
-const ItemCount = ({ currentItem }) => {
+const ItemCount = ({
+    currentItem,
+    value,
+    quantity,
+    handleCount,
+    handleDescount,
+    onAdding,
+    count,
+    addingToCart,
+    id
+}) => {
 
-    const { quantity } = currentItem;
-    const [count, setCount] = useState(0)
-    const [onAdding, setOnAdding] = useState(false)
+    // const { quantity } = currentItem;
 
-    const handleDescount = () => {
-        if (count <= 0) {
-            return
-        }
-        setCount(count - 1)
-    }
-    const handleCount = () => {
-        if (count >= quantity) {
-            return
-        }
-        setOnAdding(true)
-        setCount(count + 1)
-    }
 
     return (
         <div className={style.container}>
-
-            {/* {
-                items.map(item => (
-                    <Item
-                        key={item.id}
-                        item={item}
-                    />
-                ))
-            } */}
-
             {onAdding ?
                 <>
                     <p className={style.counter}>
-                        <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
+                        <button className={style.btn_product} onClick={() => handleDescount()}><i className="fas fa-minus"></i></button>
                         {count}
-                        <button className={style.btn_product} onClick={() => handleCount()}>+</button>
+                        <button className={style.btn_product} onClick={() => handleCount()}><i className="fas fa-plus"></i></button>
                     </p>
-                    <Link to="/cart"><button className={style.btn_product}>Terminar mi compra</button></Link>
+                    <button onClick={() => addingToCart(id)} className={style.btn_product}>Terminar mi compra {count}</button>
                 </>
                 :
                 <p className={style.counter}>
                     <button className={style.btn_product} onClick={() => handleDescount()}>-</button>
                     {count}
                     <button className={style.btn_product} onClick={() => handleCount()}>+</button>
-                </p>}
+                </p>
+            }
         </div>
     )
 }

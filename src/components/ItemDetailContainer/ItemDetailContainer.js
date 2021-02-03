@@ -1,51 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams, Link } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext';
+
 
 const ItemDetailContainer = ({ initialValue }) => {
 
-    // const initialValue = [
-    //     { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 'radios' },
-    //     { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 'relojes' },
-    //     { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 'pulseras' },
-    // ]
+    const { id } = useParams();
 
-    const [newItemDetail, setNewItemDetail] = useState([]);
+    const [newItemDetail, setNewItemDetail] = useState({});
+    const [addToCart, setAddToCart] = useState([]);
 
-    // const getData = new Promise((res, error) => {
-    //   setTimeout(() => res(initialValue), 3000);
-    // });
+    const addingToCart = (id) => {
+        const items = initialValue.filter(item => item.id === id);
+        // setAddToCart(items);
+        setAddToCart(items);
+        console.log(addToCart)
+    }
+
 
     useEffect(() => {
-        const emulateFetch = () => {
-            let findItems = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    initialValue ? resolve(initialValue) : reject('No items available');
-                }, 3000);
-            });
+        const emulateFetch = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                initialValue ? resolve(initialValue) : reject('No items available');
+            }, 3000);
+        });
+        emulateFetch.then((resolve) => {
+            let resolved = resolve.find(product => product.id === Number(id));
+            console.log('ITEMS FOUNDED! ', resolved);
+            setNewItemDetail(resolved);
+        })
+            .catch((err) => {
+                console.log('Error: ', err);
+            })
+    }, [id]);
 
-            findItems
-                .then((resolve) => {
-                    console.log('ITEMS FOUNDED! ', resolve);
-                    setNewItemDetail(resolve);
-                })
-                .catch((err) => {
-                    console.log('Error: ', err);
-                });
-        };
-        emulateFetch()
-
-    }, []);
-    console.log(newItemDetail)
     return (
         <div>
-            <ItemDetail newItem={newItemDetail} />
+            {
+                newItemDetail &&
+                <ItemDetail itemDetail={newItemDetail} addingToCart={addingToCart} />
+            }
         </div>
     );
 };
 
 export default ItemDetailContainer;
-
-
-
-
-

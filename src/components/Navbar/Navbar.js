@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
-import CartWidget from '../CartWidget/CartWidget'
-// import Logo from '../Assets/logo_ecommerce.png'
+import CartWidget from '../CartWidget/CartWidget';
+import { CartContext } from '../../Context/CartContext';
+
 
 
 const Navbar = (props) => {
+
+    // const { cosme } = useContext(CartContext);
+    // const { cosme } = cosme
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,14 +26,14 @@ const Navbar = (props) => {
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/item/:id">Products</Link>
+                                <Link className="nav-link" to='/category/1'>Category 1</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/category/:id">Categories</Link>
+                                <Link className="nav-link" to='/category/2'>Category 2</Link>
                             </li>
                         </ul>
                     </div>
-                    <Link className="nav-link" to="/category/:id">{props.children}</Link>
+                    <Link className="nav-link d-flex" to="/category/:id"><p className="ml-5"></p></Link>
                 </div>
             </nav>
         </div>
