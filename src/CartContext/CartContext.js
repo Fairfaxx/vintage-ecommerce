@@ -41,9 +41,23 @@ export const Context = ({ children }) => {
     };
 
 
+    // Total $ Shopping Cart
+    const totalPrice = () => {
+        return products.reduce(
+            (acc, product) => (acc += product.quantity * product.price),
+            0
+        );
+    };
+
+    const emptyCart = () => {
+        products.splice(0, products.length);
+        return setProducts([...products]);
+    };
+
+    console.log(products)
 
     return (
-        <CartContext.Provider value={{ deleteProduct, productsQuantity, handleQuantity, addProduct, products, count, setCount }}>
+        <CartContext.Provider value={{ totalPrice, emptyCart, deleteProduct, productsQuantity, handleQuantity, addProduct, products, count, setCount }}>
             {children}
         </CartContext.Provider>
     )

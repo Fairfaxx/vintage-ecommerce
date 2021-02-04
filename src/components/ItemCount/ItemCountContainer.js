@@ -5,8 +5,9 @@ import { CartContext } from '../../CartContext/CartContext';
 const ItemCountContainer = ({ currentItem, addingToCart }) => {
 
     const { count, setCount } = useContext(CartContext);
+
     const { quantity, id } = currentItem;
-    // const [count, setCount] = useState(0);
+
     console.log(count)
     const [onAdding, setOnAdding] = useState(false);
     const [quantityCount, setQuantityCount] = useState(quantity);

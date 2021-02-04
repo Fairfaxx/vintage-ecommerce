@@ -7,15 +7,15 @@ import ItemCountContainer from '../ItemCount/ItemCountContainer';
 const ItemDetail = ({ itemDetail, addingToCart }) => {
     console.log(itemDetail);
 
-    const { quantityContext } = useContext(CartContext);
-
+    const { quantity } = useContext(CartContext);
+    console.log('quantityContext', quantity)
 
 
     return (
         <div>
             <h2>{itemDetail.nombre}</h2>
             <h3>Valor: ${itemDetail.precio}</h3>
-            <h3>Cantidad adquirida: {quantityContext}</h3>
+            <h3>Cantidad adquirida: {quantity}</h3>
             <ItemCountContainer currentItem={itemDetail} addingToCart={addingToCart} />
         </div>
     );

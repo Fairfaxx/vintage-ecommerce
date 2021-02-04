@@ -6,6 +6,7 @@ import ItemCount from './components/ItemCount/ItemCount';
 import ItemList from './components/ItemList/ItemList';
 import Item from './components/Item/Item';
 import ItemDetail from './components/ItemDetail/ItemDetail';
+import CartContainer from './components/Cart/CartContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartWidget from './components/CartWidget/CartWidget';
 import { Context } from './CartContext/CartContext';
@@ -38,9 +39,9 @@ function App() {
             <Route path="/item/:id">
               <ItemDetailContainer initialValue={initialValue} />
             </Route>
-            {/* <Route exact path="/cart/">
-              <Cart />
-            </Route> */}
+            <Route exact path="/cart/">
+              <CartContainer />
+            </Route>
           </Switch>
         </BrowserRouter>
       </Context>
