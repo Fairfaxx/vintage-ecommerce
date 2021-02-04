@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
-import CartContext from '../../CartContext/CartContext';
+import { CartContext } from '../../CartContext/CartContext';
 
 
 
 const Navbar = (props) => {
 
-    // const { cosme } = useContext(CartContext);
+    const { count } = useContext(CartContext);
     // const { cosme } = cosme
 
     return (
@@ -33,7 +33,7 @@ const Navbar = (props) => {
                             </li>
                         </ul>
                     </div>
-                    <Link className="nav-link d-flex" to="/category/:id"><p className="ml-5"></p></Link>
+                    <Link className="nav-link d-flex" to="/category/:id"><CartWidget /><p className="ml-5">{count}</p></Link>
                 </div>
             </nav>
         </div>

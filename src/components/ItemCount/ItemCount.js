@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import style from './ItemCount.module.scss';
+import { CartContext } from '../../CartContext/CartContext';
 
 
 const ItemCount = ({
@@ -15,9 +16,9 @@ const ItemCount = ({
     id
 }) => {
 
-    // const { quantity } = currentItem;
+    const { addProduct } = useContext(CartContext);
 
-
+    console.log(addProduct.length)
     return (
         <div className={style.container}>
             {onAdding ?
@@ -27,7 +28,7 @@ const ItemCount = ({
                         {count}
                         <button className={style.btn_product} onClick={() => handleCount()}><i className="fas fa-plus"></i></button>
                     </p>
-                    <button onClick={() => addingToCart(id)} className={style.btn_product}>Terminar mi compra {count}</button>
+                    <Link to='/Cart'><button onClick={() => addProduct(id)} className={style.btn_product}>Terminar mi compra {count}</button></Link>
                 </>
                 :
                 <p className={style.counter}>

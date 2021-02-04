@@ -1,20 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ItemCount from './ItemCount';
-// import CartContext from '../../Context/CartContext';
+import { CartContext } from '../../CartContext/CartContext';
 
 const ItemCountContainer = ({ currentItem, addingToCart }) => {
 
+    const { count, setCount } = useContext(CartContext);
     const { quantity, id } = currentItem;
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
     console.log(count)
     const [onAdding, setOnAdding] = useState(false);
     const [quantityCount, setQuantityCount] = useState(quantity);
 
-
-    // const addingToCart = (id) => {
-    //     const items = currentItem.filter(item => item.id === id);
-    //     console.log(items)
-    // }
 
     const handleDescount = () => {
         if (count <= 0) {
