@@ -5,6 +5,8 @@ import Cart from './Cart';
 const CartList = ({ products }) => {
 
     const { totalPrice } = useContext(CartContext);
+
+
     return (
         <div>
             <div>

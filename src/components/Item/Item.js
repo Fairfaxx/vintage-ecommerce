@@ -5,7 +5,9 @@ import styles from './Item.module.scss'
 
 const Item = ({ item }) => {
 
-
+    console.log('items', item)
+    console.log('items', item.nombre)
+    console.log('items', item.categoryId)
 
     return (
         <div className={styles.container}>

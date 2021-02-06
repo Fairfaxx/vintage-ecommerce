@@ -5,8 +5,6 @@ const Cart = ({ product }) => {
 
 
     const { deleteProduct } = useContext(CartContext);
-    // const { products } = useContext(CartContext);
-    // console.log('products', product)
     console.log(product)
 
 
@@ -18,7 +16,7 @@ const Cart = ({ product }) => {
     return (
         <div>
             <div>
-                {/* <h5> {product.nombre} </h5> */}
+                <h5> {product} </h5>
             </div>
             <div className="">
                 {/* <h6 className=""> {product.precio} </h6> */}

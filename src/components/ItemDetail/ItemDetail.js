@@ -5,10 +5,11 @@ import ItemCountContainer from '../ItemCount/ItemCountContainer';
 
 
 const ItemDetail = ({ itemDetail, addingToCart }) => {
-    console.log(itemDetail);
+
 
     const { quantity } = useContext(CartContext);
-    console.log('quantityContext', quantity)
+    console.log('Desde itemDetail', itemDetail)
+    console.log('Desde itemDetail', itemDetail.nombre)
 
 
     return (
