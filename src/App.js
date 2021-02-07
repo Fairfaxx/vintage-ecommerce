@@ -13,12 +13,12 @@ import { Context } from './CartContext/CartContext';
 
 function App() {
 
-  const initialValue = [
-    { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 1 },
-    { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 1 },
-    { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 2 },
-    { id: 4, nombre: 'Televisor Antiguo', precio: 11000, quantity: 5, categoryId: 2 },
-  ]
+  // const initialValue = [
+  //   { id: 1, nombre: 'Radio Antigua', precio: 9000, quantity: 5, categoryId: 1 },
+  //   { id: 2, nombre: 'Reloj Antiguo', precio: 19000, quantity: 5, categoryId: 1 },
+  //   { id: 3, nombre: 'Pulsera Antigua', precio: 15000, quantity: 5, categoryId: 2 },
+  //   { id: 4, nombre: 'Televisor Antiguo', precio: 11000, quantity: 5, categoryId: 2 },
+  // ]
 
 
 
@@ -31,15 +31,18 @@ function App() {
           </Navbar>
           <Switch>
             <Route exact path="/" >
-              <ItemListContainer initialValue={initialValue} titulo="Bienvenidos a Vintage E-commerce" />
+              <ItemListContainer titulo="Bienvenidos a Vintage E-commerce" />
             </Route>
             <Route path="/category/:categoryId">
-              <ItemListContainer initialValue={initialValue} />
+              <ItemListContainer />
             </Route>
             <Route path="/item/:id">
-              <ItemDetailContainer initialValue={initialValue} />
+              <ItemDetailContainer />
             </Route>
-            <Route exact path="/cart/">
+            {/* <Route exact path="/cart/">
+              <CartContainer />
+            </Route> */}
+            <Route path="/test">
               <CartContainer />
             </Route>
           </Switch>

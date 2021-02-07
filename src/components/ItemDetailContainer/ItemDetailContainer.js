@@ -12,12 +12,12 @@ const ItemDetailContainer = ({ initialValue }) => {
     const [newItemDetail, setNewItemDetail] = useState([]);
     const [addToCart, setAddToCart] = useState([]);
 
-    const addingToCart = (id) => {
-        const items = initialValue.filter(item => item.id === id);
-        // setAddToCart(items);
-        setAddToCart(items);
-        console.log(addToCart)
-    }
+    // const addingToCart = (id) => {
+    //     const items = initialValue.filter(item => item.id === id);
+    //     // setAddToCart(items);
+    //     setAddToCart(items);
+    //     console.log(addToCart)
+    // }
 
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const ItemDetailContainer = ({ initialValue }) => {
         <div>
             {
                 newItemDetail &&
-                <ItemDetail itemDetail={newItemDetail} addingToCart={addingToCart} />
+                <ItemDetail itemDetail={newItemDetail} />
             }
         </div>
     );

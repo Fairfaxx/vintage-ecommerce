@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import ItemCount from './ItemCount';
 import { CartContext } from '../../CartContext/CartContext';
 
-const ItemCountContainer = ({ currentItem, addingToCart }) => {
+const ItemCountContainer = ({ currentItem }) => {
 
     const { count, setCount } = useContext(CartContext);
 
@@ -55,7 +55,6 @@ const ItemCountContainer = ({ currentItem, addingToCart }) => {
                 currentItem={currentItem}
                 onAdding={onAdding}
                 setQuantityCount={setQuantityCount}
-                addingToCart={addingToCart}
                 id={id}
             />
             <p>Cantidad disponible: {quantity - count}</p>

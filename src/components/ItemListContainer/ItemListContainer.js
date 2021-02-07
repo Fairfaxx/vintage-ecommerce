@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getFirestore } from '../../firebase';
 import styles from './ItemListContainer.module.scss';
 import Item from '../Item/Item'
+import Loading from '../Loading/Loading';
 
 
 const ItemListContainer = ({ titulo, initialValue }) => {
@@ -39,45 +40,21 @@ const ItemListContainer = ({ titulo, initialValue }) => {
 
     }, [])
 
-    // useEffect(() => {
-    //     const emulateFetch = () => {
-    //         let findItems = new Promise((resolve, reject) => {
-    //             setTimeout(() => {
-    //                 initialValue ? resolve(initialValue) : reject('No items available');
-    //             }, 3000);
-    //         });
-
-    //         findItems
-    //             .then((resolve) => {
-    //                 if (categoryId !== undefined) {
-    //                     setNewItemDetail(resolve.filter(product => product.categoryId === Number(categoryId)));
-    //                 } else {
-    //                     console.log('ITEMS FOUNDED! ', initialValue);
-    //                     setNewItemDetail(initialValue);
-    //                 }
-    //             })
-    //             .catch((err) => {
-    //                 console.log('Error: ', err);
-    //             });
-    //     };
-    //     emulateFetch()
-
-
-
-    // }, [categoryId]);
 
     return (
         <>
             <h1>{titulo}</h1>
             <div className={styles.container}>
-                {newItemDetail.map((itemToMap) => (
-                    <Link to={`/item/${itemToMap.id}`} key={itemToMap.categoryId}>
-                        <Item
-                            key={itemToMap.id}
-                            item={itemToMap}
-                        />
-                    </Link>
-                ))
+                {
+                    loading ? <Loading /> :
+                        newItemDetail.map((itemToMap, index) => (
+                            <Link to={`/item/${itemToMap.id}`} key={index}>
+                                <Item
+                                    key={itemToMap.id}
+                                    item={itemToMap}
+                                />
+                            </Link>
+                        ))
                 }
             </div>
         </>
